@@ -10,7 +10,7 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
 HERO_IMAGE = ROOT / "pics" / "YOUZTH CLUBNEW.png"
-LOGO_IMAGE = ROOT / "pics" / "logo.png"
+LOGO_IMAGE = ROOT / "pics" / "logo2.png"
 CSS_FILE = ROOT / "styles" / "main.css"
 TELEGRAM_URL = "https://t.me/YOUZTH_CLUB"
 

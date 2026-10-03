@@ -45,8 +45,8 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
 .site-nav { width: 100%; background: var(--navy-deep); box-shadow: 0 8px 25px rgba(6, 16, 37, .09); }
 .nav-inner { width: min(100%, 1240px); min-height: 76px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; gap: 30px; }
 .brand { color: #fff !important; display: inline-flex; align-items: center; gap: 11px; flex: none; }
-.brand-mark { display: block; width: 35px; height: 35px; overflow: hidden; border-radius: 6px; background: #fff; position: relative; }
-.brand-mark img { position: absolute; width: 35px; height: auto; top: 50%; left: 50%; transform: translate(-50%, -52%) scale(2.35); }
+.brand-mark { display: block; width: 35px; height: 35px; overflow: hidden; border-radius: 6px; background: transparent; position: relative; }
+.brand-mark img { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: screen; }
 .brand-name { font-size: 17px; font-weight: 700; line-height: 1; letter-spacing: -.055em; white-space: nowrap; }
 .brand-name strong { color: #ff776c; font-weight: 700; }
 .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 34px); margin-left: auto; }
