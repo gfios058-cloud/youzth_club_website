@@ -3,15 +3,10 @@
 from __future__ import annotations
 
 import base64
-import re
-import sqlite3
 from functools import lru_cache
 from pathlib import Path
 
 import streamlit as st
-
-from applications import Application, save_application
-
 
 ROOT = Path(__file__).resolve().parent
 HERO_IMAGE = ROOT / "pics" / "YOUZTH CLUBNEW.png"
@@ -174,80 +169,6 @@ def render_how_to_join() -> None:
     )
 
 
-def render_application() -> None:
-    with st.container(key="application_section"):
-        st.markdown(
-            """
-            <div class="application-heading">
-              <p class="section-kicker">05 / Make your move</p>
-              <h2>Ready to turn your<br /><span>idea into action?</span></h2>
-              <p>Join YOUZTH CLUB and start building with us.</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        with st.form("join_form", clear_on_submit=False, border=False):
-            name_column, age_column = st.columns(2)
-            with name_column:
-                full_name = st.text_input("Full name *", placeholder="Your full name")
-            with age_column:
-                age_text = st.text_input("Age *", placeholder="Your age", max_chars=3)
-
-            city_column, email_column = st.columns(2)
-            with city_column:
-                city = st.text_input("City *", placeholder="Where are you based?")
-            with email_column:
-                email = st.text_input("Email *", placeholder="you@example.com")
-
-            telegram_column, idea_column = st.columns(2)
-            with telegram_column:
-                telegram = st.text_input("Telegram username", placeholder="@username (optional)")
-            with idea_column:
-                has_project_idea = st.selectbox(
-                    "Do you already have a project idea? *",
-                    ["Choose an answer", "Yes", "Not yet", "I'm exploring"],
-                )
-            interests = st.text_input("What are you interested in? *", placeholder="Your interests or skills")
-            message = st.text_area(
-                "Why do you want to join? *",
-                placeholder="Tell us a little about what you want to explore or build.",
-                height=116,
-            )
-            submitted = st.form_submit_button("SEND APPLICATION  ↗", use_container_width=True)
-
-        if submitted:
-            required_text = [full_name, city, interests, email, message]
-            if not all(value.strip() for value in required_text) or not age_text.strip() or has_project_idea == "Choose an answer":
-                st.error("Please complete all required fields before submitting.")
-            elif not age_text.strip().isdigit() or not 1 <= int(age_text.strip()) <= 120:
-                st.error("Please enter an age between 1 and 120.")
-            elif not re.fullmatch(r"[^\s@]+@[^\s@]+\.[^\s@]+", email.strip()):
-                st.error("Please enter a valid email address.")
-            else:
-                application: Application = {
-                    "full_name": full_name.strip(),
-                    "age": int(age_text.strip()),
-                    "city": city.strip(),
-                    "email": email.strip(),
-                    "telegram": telegram.strip(),
-                    "interests": interests.strip(),
-                    "has_project_idea": has_project_idea,
-                    "message": message.strip(),
-                }
-                try:
-                    save_application(application)
-                except (OSError, sqlite3.Error):
-                    st.error("We couldn't save your application. Please try again later.")
-                else:
-                    st.success("Thank you for applying! Your application has been saved.")
-
-        st.markdown(
-            '<p class="application-note">Your application is saved on this site’s server for the club to review.</p>',
-            unsafe_allow_html=True,
-        )
-
-
 def render_footer(logo_uri: str) -> None:
     st.markdown(
         f"""
@@ -281,7 +202,6 @@ def main() -> None:
     render_intro(image_data_uri(HERO_IMAGE))
     render_video()
     render_how_to_join()
-    render_application()
     render_footer(logo_uri)
 
 
