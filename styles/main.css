@@ -13,7 +13,8 @@
   --content: 1180px;
 }
 
-html { scroll-behavior: smooth; }
+html, body, .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"],
+[data-testid="stMainBlockContainer"], [data-testid="stAppViewBlockContainer"] { scroll-behavior: smooth; }
 html, body, .stApp { overflow-x: hidden; }
 body, button, input, textarea, select { font-family: 'DM Sans', Arial, sans-serif; }
 .stApp { background: var(--paper); color: var(--ink); }
@@ -287,6 +288,7 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html, body, .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"],
+  [data-testid="stMainBlockContainer"], [data-testid="stAppViewBlockContainer"] { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
