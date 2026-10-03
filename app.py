@@ -157,8 +157,8 @@ def render_how_to_join() -> None:
               <p>YOUZTH CLUB is accessible to everyone. Join our official Telegram channel to enter the community, introduce yourself, and start collaborating.</p>
             </div>
             <div class="join-steps">
-              <div class="join-step"><span>01</span><h3>Join our Telegram</h3><p>Enter the YOUZTH CLUB community.</p></div>
-              <div class="join-step"><span>02</span><h3>Introduce yourself</h3><p>Share your interests, skills, or ideas with the community.</p></div>
+              <div class="join-step"><span>01</span><h3>Browse events</h3><p>Enter the YOUZTH CLUB community.</p></div>
+              <div class="join-step"><span>02</span><h3>Apply</h3><p>Register for an event.</p></div>
               <div class="join-step"><span>03</span><h3>Start collaborating</h3><p>Meet other young people and turn ideas into real projects.</p></div>
             </div>
             <div class="how-cta"><a class="button button-red" href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">JOIN OUR TELEGRAM <span aria-hidden="true">↗</span></a></div>
