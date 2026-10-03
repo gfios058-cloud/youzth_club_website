@@ -47,7 +47,7 @@ def render_nav(logo_uri: str) -> None:
               <a href="#how-to-join">How to Join</a>
               <a href="#video">Video</a>
             </div>
-            <a class="button button-red nav-apply" href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Apply to Join <span aria-hidden="true">↗</span></a>
+            <a class="button button-red nav-apply" href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Join <span aria-hidden="true">↗</span></a>
             <details class="mobile-nav">
               <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
               <div class="mobile-nav-links">
@@ -56,7 +56,7 @@ def render_nav(logo_uri: str) -> None:
                 <a href="#why-join">Why Join</a>
                 <a href="#how-to-join">How to Join</a>
                 <a href="#video">Video</a>
-                <a href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Apply to Join</a>
+                <a href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Join</a>
               </div>
             </details>
           </div>
@@ -78,7 +78,7 @@ def render_intro(hero_uri: str) -> None:
                 <p class="hero-description">We bring young innovators in Uzbekistan together to brainstorm, collaborate, and launch real projects.</p>
                 <p class="hero-promise">Want to make a project but don't know how to start? Bring your vision. We'll help you turn it into a first step.</p>
                 <div class="hero-actions">
-                  <a class="button button-red" href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Apply to Join <span aria-hidden="true">↗</span></a>
+                  <a class="button button-red" href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Join <span aria-hidden="true">↗</span></a>
                   <a class="button button-outline" href="#video"><span class="play-icon" aria-hidden="true">▶</span> Watch Introduction</a>
                 </div>
               </div>
@@ -159,14 +159,14 @@ def render_how_to_join() -> None:
           <div class="section-inner">
             <div class="how-intro">
               <div><p class="section-kicker">04 / Your next step</p><h2>How to <span>join?</span></h2></div>
-              <p>YOUZTH CLUB is accessible to everyone. Click “Apply to Join” to open our official Telegram channel and connect with the community. We're happy to welcome you.</p>
+              <p>YOUZTH CLUB is accessible to everyone. Click “Join” to open our official Telegram channel and connect with the community. We're happy to welcome you.</p>
             </div>
             <div class="join-steps">
               <div class="join-step"><span>01</span><h3>Apply</h3><p>Open the official Telegram channel.</p></div>
               <div class="join-step"><span>02</span><h3>Tell us about yourself</h3><p>Share what interests you and what you want to create.</p></div>
               <div class="join-step"><span>03</span><h3>Join the community</h3><p>Take your next step with other young people.</p></div>
             </div>
-            <div class="how-cta"><a class="button button-red" href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Apply to Join <span aria-hidden="true">↗</span></a></div>
+            <div class="how-cta"><a class="button button-red" href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Join <span aria-hidden="true">↗</span></a></div>
           </div>
         </section>
         """,
@@ -254,7 +254,7 @@ def render_footer(logo_uri: str) -> None:
         <section class="final-cta">
           <div class="section-inner final-cta-inner">
             <div><p class="section-kicker">THE FIRST STEP STARTS HERE</p><h2>Got an idea?<br /><span>Let's make the first step together.</span></h2></div>
-            <a class="button button-red" href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Apply to Join <span aria-hidden="true">↗</span></a>
+            <a class="button button-red" href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Join <span aria-hidden="true">↗</span></a>
           </div>
         </section>
         <footer class="site-footer">
@@ -263,7 +263,7 @@ def render_footer(logo_uri: str) -> None:
               <a class="brand" href="#home" aria-label="YOUZTH CLUB home"><span class="brand-mark"><img src="{logo_uri}" alt="" /></span><span class="brand-name">YOUZTH <strong>CLUB</strong></span></a>
               <p>A community where young people in Uzbekistan turn curiosity into action.</p>
             </div>
-            <div class="footer-links"><span>EXPLORE</span><a href="#about">About</a><a href="#why-join">Why Join</a><a href="#video">Video</a><a href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Apply</a></div>
+            <div class="footer-links"><span>EXPLORE</span><a href="#about">About</a><a href="#why-join">Why Join</a><a href="#video">Video</a><a href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">Join</a></div>
             <div class="footer-message"><span>BRING YOUR VISION</span><p>We'll help you turn it into a first step.</p></div>
           </div>
           <div class="section-inner footer-bottom"><span>© 2026 YOUZTH CLUB</span><a href="#home">Back to top ↑</a></div>
