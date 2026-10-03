@@ -13,6 +13,73 @@ HERO_IMAGE = ROOT / "pics" / "YOUZTH CLUBNEW.png"
 LOGO_IMAGE = ROOT / "pics" / "logo2.png"
 CSS_FILE = ROOT / "styles" / "main.css"
 TELEGRAM_URL = "https://t.me/YOUZTH_CLUB"
+THEME_CONTROLLER = """
+<script>
+(() => {
+  const storageKey = "youzth-club-theme";
+  const root = document.documentElement;
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const savedTheme = () => {
+    try {
+      const saved = window.localStorage.getItem(storageKey);
+      if (saved === "light" || saved === "dark") return saved;
+    } catch (error) {}
+    return media.matches ? "dark" : "light";
+  };
+
+  const syncToggle = (theme) => {
+    const isDark = theme === "dark";
+    const label = isDark ? "Switch to light mode" : "Switch to dark mode";
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      button.setAttribute("aria-label", label);
+      button.setAttribute("title", label);
+      button.setAttribute("aria-pressed", String(isDark));
+    });
+  };
+
+  const applyTheme = (theme) => {
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+    syncToggle(theme);
+  };
+
+  if (!window.__youzthThemeControllerInitialized) {
+    window.__youzthThemeControllerInitialized = true;
+    document.addEventListener("click", (event) => {
+      const button = event.target instanceof Element
+        ? event.target.closest("[data-theme-toggle]")
+        : null;
+      if (!button) return;
+
+      const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+      try {
+        window.localStorage.setItem(storageKey, nextTheme);
+      } catch (error) {}
+      applyTheme(nextTheme);
+    });
+
+    media.addEventListener("change", (event) => {
+      let saved = null;
+      try {
+        saved = window.localStorage.getItem(storageKey);
+      } catch (error) {}
+      if (!saved) applyTheme(event.matches ? "dark" : "light");
+    });
+
+    const observer = new MutationObserver(() => {
+      if (document.querySelector("[data-theme-toggle]")) {
+        syncToggle(root.dataset.theme);
+        observer.disconnect();
+      }
+    });
+    observer.observe(root, { childList: true, subtree: true });
+  }
+
+  applyTheme(savedTheme());
+})();
+</script>
+"""
 
 
 @lru_cache(maxsize=2)
@@ -24,6 +91,10 @@ def image_data_uri(path: Path) -> str:
 
 def load_styles() -> None:
     st.markdown(f"<style>{CSS_FILE.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
+
+
+def render_theme_controller() -> None:
+    st.html(THEME_CONTROLLER, unsafe_allow_javascript=True)
 
 
 def render_nav(logo_uri: str) -> None:
@@ -43,6 +114,10 @@ def render_nav(logo_uri: str) -> None:
               <a href="#video">Video</a>
             </div>
             <a class="button button-red nav-join" href="{TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">JOIN CLUB <span aria-hidden="true">↗</span></a>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="false">
+              <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+              <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"></path></svg>
+            </button>
             <details class="mobile-nav">
               <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
               <div class="mobile-nav-links">
@@ -197,6 +272,7 @@ def render_footer(logo_uri: str) -> None:
 def main() -> None:
     st.set_page_config(page_title="YOUZTH CLUB", page_icon=str(LOGO_IMAGE), layout="wide", initial_sidebar_state="collapsed")
     load_styles()
+    render_theme_controller()
     logo_uri = image_data_uri(LOGO_IMAGE)
     render_nav(logo_uri)
     render_intro(image_data_uri(HERO_IMAGE))
