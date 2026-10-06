@@ -329,3 +329,10 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
   [data-testid="stMainBlockContainer"], [data-testid="stAppViewBlockContainer"] { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Hide Streamlit floating viewer badge */
+[data-testid="stAppDeployButton"],
+[data-testid="stToolbar"],
+.stAppDeployButton {
+    display: none !important;
+}
