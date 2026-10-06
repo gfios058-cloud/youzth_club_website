@@ -77,6 +77,17 @@ THEME_CONTROLLER = """
   }
 
   applyTheme(savedTheme());
+
+  // Streamlit Cloud places its viewer badge beside the app iframe.
+  try {
+    const hostDocument = window.parent.document;
+    if (hostDocument !== document && !hostDocument.getElementById("youzth-hide-streamlit-badge")) {
+      const style = hostDocument.createElement("style");
+      style.id = "youzth-hide-streamlit-badge";
+      style.textContent = 'a[href="https://streamlit.io/cloud"][class*="_viewerBadge_"] { display: none !important; }';
+      hostDocument.head.appendChild(style);
+    }
+  } catch (error) {}
 })();
 </script>
 """
