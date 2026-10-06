@@ -78,13 +78,18 @@ THEME_CONTROLLER = """
 
   applyTheme(savedTheme());
 
-  // Streamlit Cloud places its viewer badge beside the app iframe.
+  // Streamlit Cloud places its viewer badge and creator profile beside the app iframe.
   try {
     const hostDocument = window.parent.document;
-    if (hostDocument !== document && !hostDocument.getElementById("youzth-hide-streamlit-badge")) {
+    if (hostDocument !== document && !hostDocument.getElementById("youzth-hide-streamlit-cloud-ui")) {
       const style = hostDocument.createElement("style");
-      style.id = "youzth-hide-streamlit-badge";
-      style.textContent = 'a[href="https://streamlit.io/cloud"][class*="_viewerBadge_"] { display: none !important; }';
+      style.id = "youzth-hide-streamlit-cloud-ui";
+      style.textContent = `
+        a[href="https://streamlit.io/cloud"][class*="_viewerBadge_"],
+        div[class*="_profileContainer_"]:has(img[data-testid="appCreatorAvatar"]) {
+          display: none !important;
+        }
+      `;
       hostDocument.head.appendChild(style);
     }
   } catch (error) {}
