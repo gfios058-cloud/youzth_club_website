@@ -159,7 +159,7 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
 .why-heading { display: flex; align-items: end; justify-content: space-between; gap: 50px; margin-bottom: 34px; }
 .why-heading h2 { margin-bottom: 0; }
 .why-heading > p { max-width: 425px; color: var(--muted); font-size: 16px; line-height: 1.7; padding-bottom: 4px; }
-.benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.benefit-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
 .benefit-card { background: var(--surface); min-height: 235px; border: 1px solid var(--card-border); border-radius: 11px; padding: 26px 24px; position: relative; transition: transform .2s, box-shadow .2s; }
 .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 14px 29px rgba(17, 27, 52, .08); }
 .benefit-card::before { content: ''; width: 38px; height: 4px; border-radius: 6px; background: var(--red); position: absolute; top: 0; left: 25px; }
@@ -256,6 +256,7 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
   .section-copy { max-width: 680px; }
   .process-panel { max-width: 700px; width: 100%; }
   .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+  .benefit-card:last-child { grid-column: 1 / -1; }
   .benefit-card { min-height: 225px; }
   .partner-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -300,6 +301,7 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
   .why-heading, .how-intro { display: block; }
   .why-heading > p, .how-intro > p { max-width: 550px; margin-top: 20px !important; }
   .benefit-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .benefit-card:last-child { grid-column: auto; }
   .benefit-card { min-height: 170px; padding: 22px; }
   .benefit-card h3 { margin: 28px 0 8px; }
   .benefit-arrow { bottom: 16px; }
