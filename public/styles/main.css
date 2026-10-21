@@ -127,7 +127,7 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
 
 /* Values */
 .value-strip { background: var(--value-bg); }
-.value-grid { display: grid; grid-template-columns: repeat(4, 1fr); padding-top: 31px; padding-bottom: 31px; }
+.value-grid { display: grid; grid-template-columns: repeat(5, 1fr); padding-top: 31px; padding-bottom: 31px; }
 .value-item { display: flex; gap: 15px; align-items: flex-start; min-height: 57px; padding: 4px 20px 0 22px; border-left: 1px solid rgba(255,255,255,.19); }
 .value-item:first-child { padding-left: 0; border-left: 0; }
 .value-number { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #ff7770; margin-top: 2px; }
@@ -211,13 +211,6 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
 .partner-logo img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .partner-logo img[src$=".svg"] { height: 52px; }
 .partner-wordmark { color: #004b84; font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; line-height: 1.05; letter-spacing: -.03em; white-space: nowrap; }
-.partner-band { background: var(--paper); border-bottom: 1px solid var(--line); padding: 34px 0 6px; }
-.partner-band-label { text-align: center; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; margin-bottom: 16px; }
-.partner-band .partner-marquee { padding-bottom: 28px; }
-.partner-band .partner-track { animation-duration: 28s; }
-.partner-band .partner-logo { width: 210px; height: 84px; padding: 16px 24px; }
-.partner-band .partner-logo img[src$=".svg"] { height: 40px; }
-.partner-band .partner-wordmark { font-size: 16px; }
 @keyframes partner-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* Final CTA and footer */
@@ -267,6 +260,7 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
   .hero-photo { max-width: 585px; }
   .value-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 0; }
   .value-item:nth-child(3) { padding-left: 0; border-left: 0; }
+  .value-item:nth-child(5) { grid-column: 1 / -1; padding-left: 0; border-left: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 46px; }
   .section-copy { max-width: 680px; }
   .process-panel { max-width: 700px; width: 100%; }
@@ -338,9 +332,7 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
   .partner-logo { width: 200px; height: 96px; padding: 18px 22px; }
   .partner-group { gap: 12px; padding-right: 12px; }
   .partners-section { padding-bottom: 50px; }
-  .partner-band { padding-top: 26px; }
-  .partner-band .partner-logo { width: 170px; height: 70px; padding: 12px 18px; }
-  .how-cta .button { width: 100%; }
+      .how-cta .button { width: 100%; }
   .final-cta-inner { display: block; padding-top: 54px; padding-bottom: 58px; }
   .final-cta h2 { font-size: clamp(2.45rem, 10vw, 3.35rem); }
   .final-cta .button { margin-top: 24px; width: 100%; }
