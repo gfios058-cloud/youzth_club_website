@@ -4,3 +4,4 @@ __pycache__/
 references/
 .streamlit/secrets.toml
 .vercel/
+.env*
