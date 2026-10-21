@@ -211,6 +211,13 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
 .partner-logo img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .partner-logo img[src$=".svg"] { height: 52px; }
 .partner-wordmark { color: #004b84; font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; line-height: 1.05; letter-spacing: -.03em; white-space: nowrap; }
+.partner-band { background: var(--paper); border-bottom: 1px solid var(--line); padding: 34px 0 6px; }
+.partner-band-label { text-align: center; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; margin-bottom: 16px; }
+.partner-band .partner-marquee { padding-bottom: 28px; }
+.partner-band .partner-track { animation-duration: 28s; }
+.partner-band .partner-logo { width: 210px; height: 84px; padding: 16px 24px; }
+.partner-band .partner-logo img[src$=".svg"] { height: 40px; }
+.partner-band .partner-wordmark { font-size: 16px; }
 @keyframes partner-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* Final CTA and footer */
@@ -331,6 +338,8 @@ h1, h2, h3, .brand-name, .button { font-family: 'Space Grotesk', 'DM Sans', Aria
   .partner-logo { width: 200px; height: 96px; padding: 18px 22px; }
   .partner-group { gap: 12px; padding-right: 12px; }
   .partners-section { padding-bottom: 50px; }
+  .partner-band { padding-top: 26px; }
+  .partner-band .partner-logo { width: 170px; height: 70px; padding: 12px 18px; }
   .how-cta .button { width: 100%; }
   .final-cta-inner { display: block; padding-top: 54px; padding-bottom: 58px; }
   .final-cta h2 { font-size: clamp(2.45rem, 10vw, 3.35rem); }
