@@ -4,12 +4,15 @@ A single-page Streamlit landing website for YOUZTH CLUB.
 
 ## Run locally
 
+The site is static HTML in `public/`. Preview it with any static server:
+
 ```powershell
-pip install -r requirements.txt
-streamlit run app.py
+python -m http.server 3000 --directory public
 ```
 
-If the `streamlit` command is not on your PATH, use `python -m streamlit run app.py`.
+## Deploy to Vercel
+
+Import the repo in Vercel. No build command or framework is needed; `vercel.json` sets `public` as the output directory. Or run `npx vercel` from the repo root.
 
 Join links open the official YOUZTH CLUB Telegram channel in a new tab.
 
